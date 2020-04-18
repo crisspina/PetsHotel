@@ -1,13 +1,15 @@
 
 package Room;
 
+import Customers.ReservedCustomers;
+
 
 public abstract class Room implements RoomInformation{
     private String runningRoomNumber; //ต้องมีมั้ย
     private boolean avaliable;
     private static int pricePerNight;
     private RoomType roomType;
-    //private Pet pet;
+   // private ReservedCustomers pet;
 
     public Room() {
     }
@@ -20,6 +22,10 @@ public abstract class Room implements RoomInformation{
     public RoomType getRoomType() {
         return roomType;
     }
+
+//    public ReservedCustomers getPet() {
+//        return ReservedCustomers.getCustomers().getPet();
+//    }
     
     
     public boolean avaliable(){

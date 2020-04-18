@@ -1,6 +1,7 @@
 package pethotel;
 //import Room.Deluxe;
 
+import CounterService.HotelCounter;
 import Room.RoomType;
 //import Room.Superior;
 //import Room.Standard;
@@ -19,7 +20,7 @@ public class PetHotel extends Room {
     private RoomType rType;
     private Room runningRoomNumber;
     private String name;
-    //private HotelCounter h;
+    private HotelCounter h;
     //private counterService counter;
 
     public PetHotel() {
@@ -43,6 +44,7 @@ public class PetHotel extends Room {
         this.dRooms = new Room[RoomInformation.MAX_DELUXE];
         this.stdRooms = new Room[RoomInformation.MAX_STANDARD];
         this.supRooms = new Room[RoomInformation.MAX_SUPERIOR];
+        
 
     }
 
@@ -54,7 +56,7 @@ public class PetHotel extends Room {
             dRooms[i] = new Room("De" + (i + 1)) {};
         }
         for (int i = 0; i < stdRooms.length; i++) {
-            stdRooms[i] = new Room("Std" + (i + 1)) {};
+            stdRooms[i] = new Room("Std" + (i + 1)) {} ;
         }
 
     }
