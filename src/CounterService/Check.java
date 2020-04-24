@@ -1,13 +1,13 @@
 
 package CounterService;
 
-import Customers.Customers;
+import Customers.ReservedCustomers;
 
 
 public interface Check {
     
-    public boolean checkReserveHistory();
-    public boolean checkRoom();
+    public boolean checkReserveHistory(ReservedCustomers c);
+    public boolean checkIsFull(ReservedCustomers c);
    
     
 }

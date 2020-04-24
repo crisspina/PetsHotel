@@ -4,12 +4,10 @@ package Room;
 import Customers.ReservedCustomers;
 
 
-public abstract class Room implements RoomInformation{
-    private String runningRoomNumber; //ต้องมีมั้ย
-    private boolean avaliable;
-    private static int pricePerNight;
+public class Room implements RoomInformation{
+    private String runningRoomNumber; 
     private RoomType roomType;
-   // private ReservedCustomers pet;
+    private ReservedCustomers rc;
 
     public Room() {
     }
@@ -17,20 +15,30 @@ public abstract class Room implements RoomInformation{
     public Room(String Rnum){
     this.runningRoomNumber=Rnum;
     }
-//    public abstract boolean isFull();
 
+    public Room(String runningRoomNumber, RoomType roomType) {
+        this.runningRoomNumber = runningRoomNumber;
+        this.roomType = roomType;
+    }
+
+    public Room(int index, ReservedCustomers c){
+    this.rc=c;
+    }
     public RoomType getRoomType() {
         return roomType;
     }
 
-//    public ReservedCustomers getPet() {
-//        return ReservedCustomers.getCustomers().getPet();
-//    }
+
+    public ReservedCustomers getRc() {
+        return rc;
+    }
     
     
-    public boolean avaliable(){
-    this.avaliable=true;
-    return this.avaliable;
+  
+
+    @Override
+    public String toString() {
+        return "Room{" + "runningRoomNumber=" + runningRoomNumber +" roomType=" + roomType + ", rc=" + rc + '}';
     }
     
   

@@ -26,6 +26,7 @@ public class ReservedCustomers extends Customers {
         this.resRoom = resRoom;
         this.resAct = new Activities[5];
     }
+
     
     public Customers getCustomers(){
     return customers;
@@ -37,6 +38,13 @@ public class ReservedCustomers extends Customers {
 
     public Activities[] getResAct() {
         return resAct;
+    }
+    
+    
+
+    @Override
+    public String toString() {
+        return "ReservedCustomers{" + "resRoom=" + resRoom + ", resAct=" + resAct + ", customers=" + customers + '}';
     }
     
     
