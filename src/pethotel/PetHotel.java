@@ -16,12 +16,13 @@ public class PetHotel {
     private HotelRoom hr;
     private String name;
     private HotelCounter h;
-    private ReservedCustomers[] rc;
+    private ReservedCustomers[] rc; //อยากทำให้เป็นarray list
 
     public PetHotel() {
-        setHotelName();
+        setHotelName(); 
     }
 
+   
     public void setHotelName() {
         Scanner sc = new Scanner(System.in);
         String scString = sc.nextLine();

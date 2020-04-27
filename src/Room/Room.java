@@ -16,6 +16,11 @@ public class Room implements RoomInformation{
     this.runningRoomNumber=Rnum;
     }
 
+    public Room(ReservedCustomers rc) {
+        this.rc = rc;
+    }
+    
+
     public Room(String runningRoomNumber, RoomType roomType) {
         this.runningRoomNumber = runningRoomNumber;
         this.roomType = roomType;
@@ -32,10 +37,11 @@ public class Room implements RoomInformation{
     public ReservedCustomers getRc() {
         return rc;
     }
-    
-    
-  
 
+    public void setRc(ReservedCustomers rc) {
+        this.rc = rc;
+    }
+    
     @Override
     public String toString() {
         return "Room{" + "runningRoomNumber=" + runningRoomNumber +" roomType=" + roomType + ", rc=" + rc + '}';
