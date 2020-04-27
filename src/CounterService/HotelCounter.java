@@ -124,18 +124,18 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
             if (c.getResRoom().equals(RoomType.DELUXE)) {
                 for (int i = 0; i < hRoom.getDRoomLength(); i++) {
                     hRoom.setdRoom(i, c);
-                    hRoom.setCountDe();
+                    hRoom.addCountDe();
 
                 }
             } else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
                 for (int i = 0; i < hRoom.getSupRoomLength(); i++) {
                     hRoom.setSupRoom(i, c);
-                    hRoom.setCountSup();
+                    hRoom.addCountSup();
                 }
             } else {
                 for (int i = 0; i < hRoom.getStdRoomLength(); i++) {
                     hRoom.setStdRoom(i, c);
-                    hRoom.setCountStd();
+                    hRoom.addCountStd();
                 }
             }
         }
@@ -222,4 +222,6 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
         }
 
     }
+    
+    
 }

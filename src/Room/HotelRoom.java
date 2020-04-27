@@ -90,15 +90,15 @@ public class HotelRoom implements Comparable<ReservedCustomers> {
         return countSup;
     }
 
-    public void setCountDe() {
+    public void addCountDe() {
         this.countDe = countDe++;
     }
 
-    public void setCountStd() {
+    public void addCountStd() {
         this.countStd = countStd++;
     }
 
-    public void setCountSup() {
+    public void addCountSup() {
         this.countSup = countSup++;
     }
 
