@@ -8,16 +8,13 @@ public class Pet {
     private String name;
     private String age;
     private PetType type;
-    private Activities activities[];
+  
 
     public Pet(String name, String age,PetType type) {
         this.name = name;
         this.age = age;
         this.type=type;
-        petActivities();
-    }
-    public void petActivities(){
-    this.activities = new Activities[5];
+ 
     }
 
     public String getName() {

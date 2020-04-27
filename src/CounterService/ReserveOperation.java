@@ -2,11 +2,9 @@
 package CounterService;
 
 import Customers.ReservedCustomers;
-import Room.HotelRoom;
 
 public interface ReserveOperation {
-public void addPet(ReservedCustomers c);
-
-public void deletePet(ReservedCustomers c);
-public int searchPet(ReservedCustomers c);
+public void reserved(ReservedCustomers c);
+public void cancelled(ReservedCustomers c);
+public int search(ReservedCustomers c);
 }

@@ -34,8 +34,8 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
                 price += RoomInformation.SUPERIOR_ROOM_PER_NIGHT;
                 break;
         }
-        for (int i = 0; i < c.resAct.length; i++) {
-            switch (c.resAct[i]) {
+        for (int i = 0; i < c.getResAct().length; i++) {
+            switch (c.getResAct()[i]) {
                 case GROOMING:
                     price += ActivitiesFee.GROOMING;
                     break;
@@ -90,8 +90,8 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
         }
 
         pw.print("Reserved Acitvities for your pet");
-        for (int i = 0; i < c.resAct.length; i++) {
-            switch (c.resAct[i]) {
+        for (int i = 0; i < c.getResAct().length; i++) {
+            switch (c.getResAct()[i]) {
                 case GROOMING:
                     pw.println("Grooming" + ActivitiesFee.GROOMING + "baht");
                     break;
@@ -119,7 +119,7 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
 
     }
     @Override
-    public void addPet(ReservedCustomers c) {
+    public void reserved(ReservedCustomers c) {
         if (!(checkIsFull(c) || checkReserveHistory(c))) {
             if (c.getResRoom().equals(RoomType.DELUXE)) {
                 for (int i = 0; i < hRoom.getDRoomLength(); i++) {
@@ -142,12 +142,30 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
         System.out.println("CANNOT ADD PET");
     }
 
-    public void deletePet(ReservedCustomers c) {
-        
+    public void cancelled(ReservedCustomers c) {
+        if(checkReserveHistory(c)==false){
+            System.out.println("you haven't reserved the room");
+            return;
+        }else{
+        if (c.getResRoom().equals(RoomType.DELUXE)) {
+             hRoom.setdRoom(search(c), null);
+            
+        }
+        else if (c.getResRoom().equals(RoomType.STANDARD)) {
+             hRoom.setStdRoom(search(c), null);
+           
+        }
+        else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
+             hRoom.setSupRoom(search(c), null);
+             
+        }
+            System.out.println("cancelled sucessfully");
+            return;
+        }
     }
 
     @Override
-    public int searchPet(ReservedCustomers c) {
+    public int search(ReservedCustomers c) {
         if (c.getResRoom().equals(RoomType.DELUXE)) {
             for (int i = 0; i < hRoom.getCountDe(); i++) {
                 if (c.getCustomers().equals(hRoom.getdRooms(i).getRc().getCustomers())) {
@@ -182,7 +200,7 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
 
     @Override
     public boolean checkReserveHistory(ReservedCustomers c) {
-        if (searchPet(c) != -1) {
+        if (search(c) != -1) {
             System.out.println("YOU HAVE ALREADY RESERVED");
             return true;
         }
@@ -191,7 +209,7 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
 
     @Override
     public boolean checkIsFull(ReservedCustomers c) {
-        switch (c.resRoom) {
+        switch (c.getResRoom()) {
             case DELUXE:
                 return hRoom.getCountDe() == RoomInformation.MAX_DELUXE;
 

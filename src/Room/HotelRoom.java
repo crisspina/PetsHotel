@@ -39,7 +39,8 @@ public class HotelRoom implements Comparable<ReservedCustomers> {
     public RoomType getRoomType() {
         return roomType;
     }
-
+    
+    
     public Room getdRooms(int index) {
         return dRooms[index];
     }
@@ -106,8 +107,8 @@ public class HotelRoom implements Comparable<ReservedCustomers> {
         switch (o.getResRoom()) {
             case DELUXE:
                 for (int i = 0; i < countDe; i++) {
-                    if (dRooms[i].getRc().getfName().equals(o.getCustomers().getfName())
-                            && dRooms[i].getRc().getlName().equals(o.getCustomers().getlName())) {
+                    if (dRooms[i].getRc().getCustomers().getfName().equals(o.getCustomers().getfName())
+                            && dRooms[i].getRc().getCustomers().getlName().equals(o.getCustomers().getlName())) {
                         return 1;
                     }
                     System.out.println("CUSTOMERS DID NOT RESERVED");
@@ -115,8 +116,8 @@ public class HotelRoom implements Comparable<ReservedCustomers> {
                 }
             case SUPERIOR:
                 for (int i = 0; i < countDe; i++) {
-                    if (supRooms[i].getRc().getfName().equals(o.getCustomers().getfName())
-                            && supRooms[i].getRc().getlName().equals(o.getCustomers().getlName())) {
+                    if (supRooms[i].getRc().getCustomers().getfName().equals(o.getCustomers().getfName())
+                            && supRooms[i].getRc().getCustomers().getlName().equals(o.getCustomers().getlName())) {
                         return 1;
                     }
                     System.out.println("CUSTOMERS DID NOT RESERVED");

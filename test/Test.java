@@ -1,4 +1,5 @@
 
+import Activities.Activities;
 import Customers.Customers;
 import Customers.Pet;
 import Customers.PetType;
@@ -20,10 +21,12 @@ public class Test {
         Pet p2 = new Pet("obog","4",PetType.RABBIT);
         Customers c1 = new Customers("kiki", "phaeng", "0816903023", p1);
         Customers c2 = new Customers("park","chaeyong","0844078181",p2);
-       
+        
+        ReservedCustomers rc = new ReservedCustomers(RoomType.DELUXE,c1);
         
         System.out.println(c1);
-
+        System.out.println(rc);
+        
         System.out.println("-----------------");
         System.out.println(p1);
         System.out.println("------------------");
