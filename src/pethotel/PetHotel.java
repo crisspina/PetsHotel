@@ -36,13 +36,15 @@ public class PetHotel {
     
     public static ArrayList<ReservedCustomers> recievedCustomer(){
      ArrayList<ReservedCustomers> resCus = new ArrayList<ReservedCustomers>();
-     resCus.add(new ReservedCustomers(RoomType.DELUXE,Customers("oh","sehun","0711111111",Pet("vivi","6",PetType.DOG))));
+     resCus.add(new ReservedCustomers(RoomType.DELUXE,Customers("oh","sehun","0711111111",Pet("vivi","6",PetType.DOG))));   
+     resCus.add(new ReservedCustomers(RoomType.DELUXE,Customers("prince","tae","0855555555",Pet("zara","2",PetType.DOG))));
+        for (ReservedCustomer : resCus )
      return resCus;
     }
     //อิหยังวะ งงมากๆ เเล้วpetทำไมแดง
 
-    public static void getReservedHistory(){
-       this.resCus=
+    public static void getReservedHistory(recievedCustomer c){
+       this.resCus=recievedCustomer();
       
     }
     
