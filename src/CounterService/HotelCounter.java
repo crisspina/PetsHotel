@@ -12,14 +12,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public abstract class HotelCounter implements Payment, ReserveOperation, Check {
+public class HotelCounter implements Payment, ReserveOperation, Check {
 
     private HotelRoom hRoom;
 
     public HotelCounter() {
 
     }
-
+    @Override
     public int checkBill(ReservedCustomers c) {
         int price = 0;
 
@@ -141,7 +141,7 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
         }
         System.out.println("CANNOT ADD PET");
     }
-
+    @Override
     public void cancelled(ReservedCustomers c) {
         if(checkReserveHistory(c)==false){
             System.out.println("you haven't reserved the room");
@@ -209,6 +209,7 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
 
     @Override
     public boolean checkIsFull(ReservedCustomers c) {
+       
         switch (c.getResRoom()) {
             case DELUXE:
                 return hRoom.getCountDe() == RoomInformation.MAX_DELUXE;
@@ -222,6 +223,12 @@ public abstract class HotelCounter implements Payment, ReserveOperation, Check {
         }
 
     }
-    
-    
+    @Override
+    public void setStatustoReservedCustomers(ReservedCustomers c){
+        if (checkIsFull(c)) {
+            c.setStatus(ReservedStatus.INPROCESS);
+        }else{
+            c.setStatus(ReservedStatus.SUCESS);
+        }
+    }
 }

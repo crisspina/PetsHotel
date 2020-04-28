@@ -2,6 +2,7 @@
 package Customers;
 
 import Activities.Activities;
+import CounterService.ReservedStatus;
 import Room.RoomType;
 
 public class ReservedCustomers  {
