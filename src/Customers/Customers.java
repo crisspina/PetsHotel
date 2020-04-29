@@ -10,6 +10,7 @@ public class Customers {
     private String phoneNumber;
     private Pet pet;
 
+
     public Customers(int CustomerID, String fName, String lName, String phoneNumber, Pet pet) {
         this.CustomerID = CustomerID;
         this.fName = fName;
@@ -57,8 +58,7 @@ public class Customers {
     public void setPet(Pet pet) {
         this.pet = pet;
     }
-    
-    
+
 
     @Override
     public int hashCode() {

@@ -11,6 +11,7 @@ public class ReservedCustomers  {
     private final int numberOfActivities=6;
     private Customers customer;
     private ReservedStatus status;
+    private int amount;
 
     public ReservedCustomers(RoomType resRoom, Customers customer) {
         this.resRoom = resRoom;
@@ -46,10 +47,20 @@ public class ReservedCustomers  {
     public void setStatus(ReservedStatus rs){
             this.status=rs;
     }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+    
+    
     
     @Override
     public String toString() {
-        return "ReservedCustomers{" + "resRoom=" + getResRoom() + ", resAct=" + getResAct() + ", customer=" + getCustomers() + ", status=" + getStatus() + '}';
+        return "ReservedCustomers{" + "resRoom=" + getResRoom() + ", resAct=" + getResAct() + ", customer=" + getCustomers() + ", status=" + getStatus() +"amount money" + getAmount()+ '}';
     }
     
     

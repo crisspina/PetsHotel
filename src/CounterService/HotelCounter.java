@@ -60,6 +60,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
             }
 
             printSlip(c);
+            c.setAmount(price);
             return price;
         }
         return -1; //กรณีที่ไม่ตรงจองห้องไม่ทำอะไรเลย
