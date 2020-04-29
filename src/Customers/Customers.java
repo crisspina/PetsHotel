@@ -2,21 +2,43 @@ package Customers;
 
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Customers {
     private int CustomerID;
     private String fName;
     private String lName;
     private String phoneNumber;
-    private Pet pet;
 
 
+    public Customers(){
+        
+    }
+    
     public Customers(int CustomerID, String fName, String lName, String phoneNumber, Pet pet) {
         this.CustomerID = CustomerID;
         this.fName = fName;
         this.lName = lName;
         this.phoneNumber = phoneNumber;
-        this.pet = pet;
+    }
+    
+    public void cusScan(){
+        Scanner sn = new Scanner(System.in);
+        
+        System.out.print("Enter first name: ");
+        fName = sn.nextLine();
+        
+        System.out.print("Enter last name: ");
+        lName = sn.nextLine();
+        
+        System.out.print("Enter phonenumber: ");
+        phoneNumber = sn.nextLine();
+        
+        System.out.println("---------------------");
+        System.out.println("First name: " + fName);
+        System.out.println("Last name: " + lName);
+        System.out.println("Phone number: " + phoneNumber);;
+        System.out.println("Customer ID: " + CustomerID);
     }
 
     public int getCustomerID() {
@@ -35,10 +57,6 @@ public class Customers {
         return phoneNumber;
     }
 
-    public Pet getPet() {
-        return pet;
-    }
-
     public void setCustomerID(int CustomerID) {
         this.CustomerID = CustomerID;
     }
@@ -55,14 +73,9 @@ public class Customers {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
-
-
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 3;
         return hash;
     }
 
@@ -78,6 +91,9 @@ public class Customers {
             return false;
         }
         final Customers other = (Customers) obj;
+        if (this.CustomerID != other.CustomerID) {
+            return false;
+        }
         if (!Objects.equals(this.fName, other.fName)) {
             return false;
         }
@@ -87,19 +103,13 @@ public class Customers {
         if (!Objects.equals(this.phoneNumber, other.phoneNumber)) {
             return false;
         }
-        if (!Objects.equals(this.pet, other.pet)) {
-            return false;
-        }
         return true;
     }
 
-
     @Override
     public String toString() {
-        return "Customers{" + "fName=" + fName + ", lName=" + lName + ", phoneNumber=" + phoneNumber + ", pet=" + pet + '}';
+        return "Customers{" + "CustomerID=" + CustomerID + ", fName=" + fName + ", lName=" + lName + ", phoneNumber=" + phoneNumber + '}';
     }
-    
-    
     
     
 }

@@ -3,18 +3,59 @@ package Customers;
 
 import Activities.Activities;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Pet {
     private String name;
     private String age;
     private PetType type;
-  
 
+    public Pet(){
+    
+}
     public Pet(String name, String age,PetType type) {
         this.name = name;
         this.age = age;
         this.type=type;
  
+    }
+    
+    public void petScan(){
+        Scanner sn = new Scanner(System.in);
+        
+        System.out.print("Enter pet name: ");
+        name = sn.nextLine();
+        
+        System.out.print("Enter pet age: ");
+        age = sn.nextLine();
+        
+        int choice;
+            System.out.println("Pet type: ");
+            System.out.println("\t 1. DOG ");
+            System.out.println("\t 2. CAT ");
+            System.out.println("\t 3. RABBIT");
+            System.out.println("\t 4. RACOON ");
+            System.out.print("Enter your number pet type: ");            
+            choice = sn.nextInt();
+            switch (choice) {
+                case 1:
+                    type = type.DOG;
+                    break;
+                case 2:
+                    type = type.CAT;
+                    break;
+                case 3:
+                    type = type.RABBIT;
+                    break;
+                case 4:
+                    type = type.RACOON;
+                    break;
+            }
+            
+        System.out.println("-------------------------------");
+        System.out.println("Pet name: " + name);
+        System.out.println("Pet age: " + age);
+        System.out.println("Pet type: " + type);
     }
 
     public String getName() {
@@ -68,3 +109,4 @@ public class Pet {
 
     
 }
+
