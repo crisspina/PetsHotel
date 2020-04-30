@@ -75,7 +75,7 @@ public class Customers {
 
     @Override
     public int hashCode() {
-        int hash = 3;
+        int hash = 7;
         return hash;
     }
 
@@ -105,6 +105,8 @@ public class Customers {
         }
         return true;
     }
+
+  
 
     @Override
     public String toString() {

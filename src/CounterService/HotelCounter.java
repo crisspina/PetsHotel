@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Objects;
 
 public class HotelCounter implements Payment, ReserveOperation, Check {
 
@@ -70,7 +71,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
     public void printSlip(ReservedCustomers c) {
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream("slip.txt");
+            fos = new FileOutputStream("CustomersSlip/" + c.getCustomers().getCustomerID()+"slip.txt");
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
@@ -126,7 +127,6 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
                 for (int i = 0; i < hRoom.getDRoomLength(); i++) {
                     hRoom.setdRoom(i, c);
                     hRoom.addCountDe();
-
                 }
             } else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
                 for (int i = 0; i < hRoom.getSupRoomLength(); i++) {
@@ -142,6 +142,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         }
         System.out.println("CANNOT ADD PET");
     }
+    
     @Override
     public void cancelled(ReservedCustomers c) {
         if(checkReserveHistory(c)==false){
@@ -224,6 +225,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         }
 
     }
+    
     @Override
     public void setStatustoReservedCustomers(ReservedCustomers c){
         if (checkIsFull(c)) {

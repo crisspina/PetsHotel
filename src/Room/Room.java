@@ -44,7 +44,7 @@ public class Room implements RoomInformation{
     
     @Override
     public String toString() {
-        return "Room{" + "runningRoomNumber=" + runningRoomNumber +" roomType=" + roomType + ", rc=" + rc + '}';
+        return "Room{" + "runningRoomNumber=" + runningRoomNumber +" roomType=" + roomType + ", reserved customers=" + getRc() + '}';
     }
     
   
