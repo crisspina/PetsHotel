@@ -1,6 +1,7 @@
 
 package dataaccess;
 
+import Dao.CustomerDao;
 import Customers.Customers;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,11 +16,11 @@ import java.util.logging.Logger;
 public class CustomerDaoImp implements CustomerDao {
 
     private final Connection conn = DBConnection.getConnection();
-    private final String SQL_CREATE_CUSTOMER = "INSERT INTO customer (fName, lName,phoneNumber,name) VALUES ( ?, ?, ?, ?)";
+    private final String SQL_CREATE_CUSTOMER = "INSERT INTO customer (CustomerID,fName, lName,phoneNumber,name) VALUES ( ?, ?, ?, ?)";
     private final String SQL_GET_ALL_CUSTOMER = "SELECT * FROM customer";
     private final String SQL_GET_CUSTOMER_BY_PETNAME = "SELECT * FROM name=?";   //name is petname
     private final String SQL_UPDATE_CUSTOMER = "UPDATE customer SET fName=?, lName=?, phoneNumber=? WHERE name=?";  //ยังไม่ชัวร์เดี๋ยวดูอีกที
-    private final String SQL_DELETE_CUSTOMER = "DELETE FROM customer WHERE fName=? AND name=? ";
+    private final String SQL_DELETE_CUSTOMER = "DELETE FROM customer WHERE CustomerID=? ";
     @Override
     public int createCustomer(Customers obj) {
         int row = 0;
@@ -70,7 +71,7 @@ public class CustomerDaoImp implements CustomerDao {
 
     @Override
     public ArrayList<Customers> getAllCustomer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
     
 }
