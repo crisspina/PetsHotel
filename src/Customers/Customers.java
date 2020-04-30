@@ -34,11 +34,16 @@ public class Customers {
         System.out.print("Enter phonenumber: ");
         phoneNumber = sn.nextLine();
         
+        System.out.print("Enter Customer ID: ");
+        phoneNumber = sn.nextLine();
+        
         System.out.println("---------------------");
         System.out.println("First name: " + fName);
         System.out.println("Last name: " + lName);
         System.out.println("Phone number: " + phoneNumber);;
         System.out.println("Customer ID: " + CustomerID);
+        
+        
     }
 
     public int getCustomerID() {

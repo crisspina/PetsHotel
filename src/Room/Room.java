@@ -8,6 +8,7 @@ public class Room implements RoomInformation{
     private String runningRoomNumber; 
     private RoomType roomType;
     private ReservedCustomers rc;
+    
 
     public Room() {
     }
