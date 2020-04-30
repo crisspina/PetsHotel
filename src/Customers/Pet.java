@@ -51,12 +51,18 @@ public class Pet {
                     type = type.RACOON;
                     break;
             }
-        
-        System.out.println("-------------------------------");
-        System.out.println("Pet name: " + name);
-        System.out.println("Pet age: " + age);
-        System.out.println("Pet type: " + type);
+       
         System.out.println("Add pet: " + addMai());
+         if(addMai() == true){
+//        System.out.println("-------------------------------");
+//        System.out.println("Pet name: " + name);
+//        System.out.println("Pet age: " + age);
+//        System.out.println("Pet type: " + type);
+        //System.out.println("Add pet: " + addMai());
+                petScan();
+            }else{
+            System.out.println("Exit");
+        }
     }
     public boolean addMai() {
         Scanner sn = new Scanner(System.in);
@@ -72,12 +78,15 @@ public class Pet {
     }
 
     public void addPet() {
-        int count = 0;
-        do {
-            petScan();
-        } while (addMai());
-
-        count = count++;
+//        if(addMai() == true){
+//            petScan();
+//        }
+//        int count = 0;
+//        do {
+//            petScan();
+//        } while (addMai());
+//
+//        count = count++;
     }
 
     public String getName() {

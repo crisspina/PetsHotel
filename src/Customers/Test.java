@@ -17,28 +17,30 @@ public class Test {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int select;
-        do {
-            select = menuSelection();
-            switch (select) {
-                case 1:
-                    CreateNewCustomer();
-                    break;
-                case 2:
-                    CheckRoomStatus();
-                    break;
-                case 3:
-                    AddPet();
-                    break;
-                case 4:
-                    Booking();
-                    break;
-                case 5:
-                    CheckStatus();
-                    break;
-            }
-        } while (select != 0);
-        System.out.println(">>>>>Exit<<<<<");
+        Pet p = new Pet();
+        p.petScan();
+//        int select;
+//        do {
+//            select = menuSelection();
+//            switch (select) {
+//                case 1:
+//                    CreateNewCustomer();
+//                    break;
+//                case 2:
+//                    CheckRoomStatus();
+//                    break;
+//                case 3:
+//                    AddPet();
+//                    break;
+//                case 4:
+//                    Booking();
+//                    break;
+//                case 5:
+//                    CheckStatus();
+//                    break;
+//            }
+//        } while (select != 0);
+//        System.out.println(">>>>>Exit<<<<<");
     }
 
     public static int menuSelection() {
