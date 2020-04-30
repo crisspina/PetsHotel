@@ -1,7 +1,6 @@
 
 package Customers;
 
-import Activities.Activities;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -10,6 +9,7 @@ public class Pet {
     private String age;
     private PetType type;
 
+    
     public Pet(){
     
 }
@@ -20,9 +20,8 @@ public class Pet {
  
     }
     
-    public void petScan(){
+    public void petScan(){       
         Scanner sn = new Scanner(System.in);
-        
         System.out.print("Enter pet name: ");
         name = sn.nextLine();
         
@@ -51,14 +50,11 @@ public class Pet {
                     type = type.RACOON;
                     break;
             }
-       
-        System.out.println("Add pet: " + addMai());
-         if(addMai() == true){
-//        System.out.println("-------------------------------");
-//        System.out.println("Pet name: " + name);
-//        System.out.println("Pet age: " + age);
-//        System.out.println("Pet type: " + type);
-        //System.out.println("Add pet: " + addMai());
+                System.out.println("-------------------------------");
+        System.out.println("Pet name: " + name);
+        System.out.println("Pet age: " + age);
+        System.out.println("Pet type: " + type);
+         if(addMai()){
                 petScan();
             }else{
             System.out.println("Exit");
@@ -75,18 +71,6 @@ public class Pet {
             return true;
         }
         return false;
-    }
-
-    public void addPet() {
-//        if(addMai() == true){
-//            petScan();
-//        }
-//        int count = 0;
-//        do {
-//            petScan();
-//        } while (addMai());
-//
-//        count = count++;
     }
 
     public String getName() {
@@ -135,8 +119,6 @@ public class Pet {
     public String toString() {
         return "Pet{" + "name=" + name + ", age=" + age + ", type=" + type + '}';
     }
-
- 
 
     
 }
