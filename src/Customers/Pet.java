@@ -51,11 +51,32 @@ public class Pet {
                     type = type.RACOON;
                     break;
             }
-            
+        
         System.out.println("-------------------------------");
         System.out.println("Pet name: " + name);
         System.out.println("Pet age: " + age);
         System.out.println("Pet type: " + type);
+        System.out.println("Add pet: " + addMai());
+    }
+    public boolean addMai() {
+        Scanner sn = new Scanner(System.in);
+        System.out.println("Do you want to add another pet : \n"
+                + "\t\t   1 : Yes \n"
+                + "\t\t   Any number continue");
+        int choose = sn.nextInt();
+        if (choose != 1) {
+            return false;
+        }
+        return true;
+    }
+
+    public void addPet() {
+        int count = 0;
+        do {
+            petScan();
+        } while (addMai());
+
+        count = count++;
     }
 
     public String getName() {

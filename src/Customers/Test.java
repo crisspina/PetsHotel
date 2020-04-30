@@ -1,7 +1,7 @@
 package Customers;
 
-import Dao.CustomerDao;
-import dataaccess.CustomerDaoImp;
+//import Dao.CustomerDao;
+//import dataaccess.CustomerDaoImp;
 import java.util.Scanner;
 
 public class Test {
@@ -68,9 +68,9 @@ public class Test {
     }
 
     private static void Booking() {
-         ReservedCustomers rc = new ReservedCustomers();
-        rc.setReservedActivities();
-    }
+//         ReservedCustomers rc = new ReservedCustomers();
+//        rc.setReservedActivities();
+   }
 
     private static void CheckStatus() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
