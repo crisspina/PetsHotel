@@ -60,14 +60,15 @@ public class Pet {
     }
     public boolean addMai() {
         Scanner sn = new Scanner(System.in);
-        System.out.println("Do you want to add another pet : \n"
-                + "\t\t   1 : Yes \n"
-                + "\t\t   Any number continue");
+        System.out.print("Do you want to add another pet: \n"
+                + "\t  1 : Yes \n"
+                + "\t  2 : No \n"
+                + "Answers number: ");
         int choose = sn.nextInt();
-        if (choose != 1) {
-            return false;
+        if (choose == 1) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     public void addPet() {
