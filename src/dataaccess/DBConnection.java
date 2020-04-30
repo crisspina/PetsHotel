@@ -22,7 +22,6 @@ public class DBConnection {
            
         } catch (SQLException ex) {
             System.err.println("Error database connection: " + ex);
-       
         }
         return conn;
     }
