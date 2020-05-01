@@ -7,7 +7,6 @@ import Customers.GeneralList;
 public interface CustomerDao { 
     int insert(Customers obj);
     int delete(Customers obj);
-    int update(Customers obj);
     Customers findById(int id);
     GeneralList<Customers> findByName(String name);
     GeneralList<Customers> getAll();

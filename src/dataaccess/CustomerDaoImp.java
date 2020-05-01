@@ -11,7 +11,8 @@ import java.sql.Statement;
 
 public class CustomerDaoImp implements CustomerDao {
 
-     @Override
+    //ได้แล้ว
+    @Override
     public int insert(Customers obj) {
         int nRow = 0;
         String sql = "INSERT INTO customer VALUES(?,?,?,?)";
@@ -28,6 +29,8 @@ public class CustomerDaoImp implements CustomerDao {
         return nRow;
     }
     
+    
+    //ได้แล้ว
      @Override
     public int delete(Customers obj) {
         int row = 0;
@@ -40,24 +43,8 @@ public class CustomerDaoImp implements CustomerDao {
         }
         return row;
     }
- 
-     @Override
-    public int update(Customers cust) {
-        int row = 0;
-        String sql = "UPDATE pet SET cus_name=? WHERE cus_id=?";
-        try (Connection conn = DBConnection.getConnection();
-                PreparedStatement stm = conn.prepareStatement(sql)) {
-            stm.setString(1, cust.getfName());
-            stm.setString(2, cust.getlName());
-            stm.setInt(3, cust.getCustomerID());
-            row = stm.executeUpdate();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return row;
-    }
     
-    
+    //ได้แล้ว
     public GeneralList<Customers> getAll() {
         GeneralList<Customers> custs = new GeneralList<>();
         try (Connection conn = DBConnection.getConnection();
@@ -78,10 +65,10 @@ public class CustomerDaoImp implements CustomerDao {
         Customers cust = null;
         try (Connection conn = DBConnection.getConnection();
                 Statement stm = conn.createStatement()) {
-            String sql = "SELECT * FROM customer WHERE CustomerID=" + id;
+            String sql = "SELECT * FROM customer WHERE cus_id=" + id;
             ResultSet rs = stm.executeQuery(sql);
             if (rs.next()) {
-                return new Customers(rs.getInt("CustomerID"), rs.getString("Firstname"), rs.getString("Lastname"), rs.getString("phoneNumber"));
+                return new Customers(rs.getInt("cus_id"), rs.getString("Firstname"), rs.getString("Lastname"), rs.getString("phoneNumber"));
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -89,7 +76,8 @@ public class CustomerDaoImp implements CustomerDao {
         return cust;
     }
 
- @Override
+ 
+    @Override
     public GeneralList<Customers> findByName(String name) {
         GeneralList<Customers> custList = new GeneralList<>();
         String sql = "SELECT * FROM customer WHERE cus_name like ?";
@@ -106,21 +94,21 @@ public class CustomerDaoImp implements CustomerDao {
 
         return custList;
     }
-    
-    
+     
+
 // อันนี้ไม่เกี่ยวแค่ เทส แต่ขอเก็บไว้ก่อน
-//    public static void main(String[] args) {
-//        CustomerDao cd = new CustomerDaoImp();
-//        GeneralList<Customers> c = cd.getAll();
-//        Customers newCust = new Customers(25952, "EDOK","Thong","0635836191");
-//        cd.insert(newCust);
-//        for (Customers customers : c) {
-//            System.out.println(customers.toString());
-//        }
-//        cd.delete(newCust);
-//        for (Customers customers : c) {
-//            System.out.println(customers.toString());
-//        }
-//       
-//    }
+    public static void main(String[] args) {
+        CustomerDao cd = new CustomerDaoImp();
+        GeneralList<Customers> c = cd.getAll();
+        Customers newCust = new Customers(25952, "EDOK","Thong","0635836191");
+        cd.insert(newCust);
+        for (Customers customers : c) {
+            System.out.println(customers.toString());
+        }
+        cd.delete(newCust);
+        for (Customers customers : c) {
+            System.out.println(customers.toString());
+        }
+       
+    }
 }
