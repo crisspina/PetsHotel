@@ -21,6 +21,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
     public HotelCounter() {
 
     }
+
     @Override
     public int checkBill(ReservedCustomers c) {
         int price = 0;
@@ -72,7 +73,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
     public void printSlip(ReservedCustomers c) {
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream("CustomersSlip/" + c.getCustomers().getCustomerID()+"slip.txt");
+            fos = new FileOutputStream("CustomersSlip/" + c.getCustomers().getCustomerID() + "slip.txt");
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
@@ -121,6 +122,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         }
 
     }
+
     @Override
     public void reserved(ReservedCustomers c) {
         if (!(checkIsFull(c) || checkReserveHistory(c))) {
@@ -143,47 +145,45 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         }
         System.out.println("CANNOT ADD PET");
     }
-    
+
     @Override
     public void cancelled(ReservedCustomers c) {
-        if(checkReserveHistory(c)==false){
+        if (checkReserveHistory(c) == false) {
             System.out.println("you haven't reserved the room");
             return;
-        }else{
-        if (c.getResRoom().equals(RoomType.DELUXE)) {
-             hRoom.setdRoom(search(c), null);
-             hRoom.minusCountDe();
-             setRoomStauts();
-            recallRoom(c);
-        }
-        else if (c.getResRoom().equals(RoomType.STANDARD)) {
-             hRoom.setStdRoom(search(c), null);
-               hRoom.minusCountStd();
-          recallRoom(c);
-        }
-        else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
-             hRoom.setSupRoom(search(c), null);
-               hRoom.minusCountSup();
-          recallRoom(c);
-        }
+        } else {
+            if (c.getResRoom().equals(RoomType.DELUXE)) {
+                hRoom.setdRoom(search(c), null);
+                hRoom.minusCountDe();
+                setRoomStauts();
+                recallRoom(c);
+            } else if (c.getResRoom().equals(RoomType.STANDARD)) {
+                hRoom.setStdRoom(search(c), null);
+                hRoom.minusCountStd();
+                recallRoom(c);
+            } else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
+                hRoom.setSupRoom(search(c), null);
+                hRoom.minusCountSup();
+                recallRoom(c);
+            }
             System.out.println("cancelled sucessfully");
             return;
         }
     }
-    
-    public void recallRoom(ReservedCustomers failcus){
-        if (failcus.getStatus().equals(ReservedStatus.FAIL)&&failcus.getResRoom().equals(RoomType.DELUXE)&&(checkIsFull(failcus)==false)) {
+
+    public void recallRoom(ReservedCustomers failcus) {
+        if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.DELUXE) && (checkIsFull(failcus) == false)) {
             reserved(failcus);
-           
-        } else if(failcus.getStatus().equals(ReservedStatus.FAIL)&&failcus.getResRoom().equals(RoomType.STANDARD)&&(checkIsFull(failcus)==false)){
+
+        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.STANDARD) && (checkIsFull(failcus) == false)) {
             reserved(failcus);
-           
-        } else if(failcus.getStatus().equals(ReservedStatus.FAIL)&&failcus.getResRoom().equals(RoomType.SUPERIOR)&&(checkIsFull(failcus)==false)){
+
+        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.SUPERIOR) && (checkIsFull(failcus) == false)) {
             reserved(failcus);
-           
+
         }
-        }
-       
+    }
+
     @Override
     public int search(ReservedCustomers c) {
         if (c.getResRoom().equals(RoomType.DELUXE)) {
@@ -229,7 +229,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
 
     @Override
     public boolean checkIsFull(ReservedCustomers c) {
-       
+
         switch (c.getResRoom()) {
             case DELUXE:
                 return hRoom.getCountDe() == RoomInformation.MAX_DELUXE;
@@ -242,20 +242,20 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
 
         }
     }
-    
+
     @Override
-    public void setStatustoReservedCustomers(ReservedCustomers c){
+    public void setStatustoReservedCustomers(ReservedCustomers c) {
         if (checkIsFull(c)) {
             c.setStatus(ReservedStatus.FAIL);
-        }else{
+        } else {
             c.setStatus(ReservedStatus.SUCESS);
         }
     }
 
     @Override
     public void setRoomStauts() {
-        switch(hRoom.){}
+        switch (hRoom.) {
+        }
     }
-    
-   
+
 }
