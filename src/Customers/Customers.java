@@ -15,14 +15,15 @@ public class Customers {
         
     }
     
-    public Customers(int CustomerID, String fName, String lName, String phoneNumber, Pet pet) {
+    public Customers(int CustomerID, String fName, String lName, String phoneNumber) {
         this.CustomerID = CustomerID;
         this.fName = fName;
         this.lName = lName;
         this.phoneNumber = phoneNumber;
     }
     
-    public void cusScan(){
+    public Customers cusScan(){
+        Customers C = null ;
         Scanner sn = new Scanner(System.in);
         
         System.out.print("Enter first name: ");
@@ -43,7 +44,8 @@ public class Customers {
         System.out.println("Phone number: " + phoneNumber);;
         System.out.println("Customer ID: " + CustomerID);
         
-        
+       C = new Customers(CustomerID, fName, lName, phoneNumber); 
+        return C;
     }
 
     public int getCustomerID() {

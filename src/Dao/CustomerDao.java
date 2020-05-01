@@ -2,15 +2,13 @@ package Dao;
 
 import Customers.Customers;
 import Customers.GeneralList;
-import java.util.ArrayList;
 
-public interface CustomerDao {
 
-    public int createCustomer(Customers obj);
-    public int deleteCustomer(Customers obj);
-    public int updateCustomer(Customers obj);
-    Customers findById(int CustomerID);
-    GeneralList<Customers> getAll();
-    
+public interface CustomerDao { 
+    int insert(Customers obj);
+    int delete(Customers obj);
+    int update(Customers obj);
+    Customers findById(int id);
     GeneralList<Customers> findByName(String name);
+    GeneralList<Customers> getAll();
 }

@@ -22,6 +22,10 @@ public class ReservedCustomers {
         this.customer = customer;
         setReservedActivities(); 
     }
+
+    ReservedCustomers() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void setReservedActivities(){
 
