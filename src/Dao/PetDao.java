@@ -6,11 +6,11 @@ import Customers.GeneralList;
 import Customers.Pet;
 
 public interface PetDao {
-    int insert(Customers obj);
+    int insert(Pet obj);
     int update(Pet obj);
-    int delete(Customers obj);
+    int delete(Pet obj);
     Pet findById(int id);
-    GeneralList<Customers> findByName(String name);
-    GeneralList<Customers> getAll();
+    GeneralList<Pet> findByName(String name);
+    GeneralList<Pet> getAll();
     
 }

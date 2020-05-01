@@ -4,16 +4,16 @@ import Customers.Customers;
 import Customers.GeneralList;
 
 
-
 public interface CustomerDao { 
- 
-    public int createCustomer(Customers obj);
-    public int deleteCustomer(Customers obj);
-    public int updateCustomer(Customers obj);
-    Customers findById(int CustomerID);
-    GeneralList<Customers> getAll();
+    int insert(Customers obj);
+    int delete(Customers obj);
+    Customers findById(int id);
     GeneralList<Customers> findByName(String name);
+<<<<<<< HEAD
 
     public void insert(Customers C);
 
+=======
+    GeneralList<Customers> getAll();
+>>>>>>> master
 }
