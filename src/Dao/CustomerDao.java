@@ -14,4 +14,10 @@ public interface CustomerDao {
     GeneralList<Customers> getAll();
     GeneralList<Customers> findByName(String name);
 
+    public void insert(Customers C);
+
+    public void insert(Customers C);
+
+    public void insert(Customers C);
+
 }

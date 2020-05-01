@@ -33,13 +33,10 @@ public class Test {
             switch (select) {
                 case 1:
                     CreateNewCustomer();
-                    break;
                 case 2:
                     CheckRoomStatus();
-                    break;
                 case 3:
                     AddPet();
-                    break;
                 case 4:
                     Booking();
                     break;
@@ -59,30 +56,29 @@ public class Test {
         input.nextLine();
         return select;
  }
-//Integer.parseInt(input.nextLine());
-   
-//        Pet p = new Pet();
-//        p.petScan();
-//        Customers c = new Customers();
-//        c.cusScan();
 
     private static void CreateNewCustomer() {
         View v =new View();
         v.printCustomer();
     }
-
-      private static void CancelBooking() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     private static void CheckRoomStatus() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        View v =new View();
+        v.printRoom();
     }
-
+    
     private static void AddPet() {
-        Pet p = new Pet();
-        p.petScan();
+        View v =new View();
+        v.printPet();
 
     }
+
+    private static void CancelBooking() {
+        
+    }
+    
+
+    
 
     private static void Booking() {
 
