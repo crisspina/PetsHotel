@@ -16,8 +16,4 @@ public interface CustomerDao {
 
     public void insert(Customers C);
 
-    public void insert(Customers C);
-
-    public void insert(Customers C);
-
 }

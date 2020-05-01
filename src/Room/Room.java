@@ -28,9 +28,7 @@ public class Room {
         this.roomType = roomType;
     }
 
-    public Room(int index, ReservedCustomers c){
-    this.rc=c;
-    }
+  
     public RoomType getRoomType() {
         return roomType;
     }
@@ -44,12 +42,16 @@ public class Room {
         this.rc = rc;
     }
 
+    
     public RoomStatus getStatus() {
         return status;
     }
 
     public void setStatus(RoomStatus status) {
-        this.status = status;
+         if (rc.getCustomers()!=null) {
+            this.status=RoomStatus.FULL;
+        }
+        this.status=RoomStatus.AVAILABLE;
     }
     
     @Override

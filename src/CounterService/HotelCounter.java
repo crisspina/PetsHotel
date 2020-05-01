@@ -4,15 +4,14 @@ import Activities.ActivitiesFee;
 import Customers.ReservedCustomers;
 import Room.HotelRoom;
 import Room.RoomInformation;
-import Room.RoomStatus;
 import Room.RoomType;
-import java.io.BufferedOutputStream;
-import java.io.DataOutputStream;
+//import java.io.BufferedOutputStream;
+//import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Objects;
+//import java.util.Objects;
 
 public class HotelCounter implements Payment, ReserveOperation, Check {
 
@@ -153,7 +152,6 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         if (c.getResRoom().equals(RoomType.DELUXE)) {
              hRoom.setdRoom(search(c), null);
              hRoom.minusCountDe();
-             setRoomStauts();
             recallRoom(c);
         }
         else if (c.getResRoom().equals(RoomType.STANDARD)) {
@@ -252,10 +250,4 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         }
     }
 
-    @Override
-    public void setRoomStauts() {
-        switch(hRoom.){}
-    }
-    
-   
 }

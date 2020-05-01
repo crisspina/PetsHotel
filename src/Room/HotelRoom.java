@@ -36,7 +36,7 @@ public class HotelRoom{
 
     }
 
-  
+    
     public Room getdRooms(int index) {
         return dRooms[index];
     }
