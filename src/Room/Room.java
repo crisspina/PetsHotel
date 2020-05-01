@@ -4,10 +4,11 @@ package Room;
 import Customers.ReservedCustomers;
 
 
-public class Room implements RoomInformation{
+public class Room {
     private String runningRoomNumber; 
     private RoomType roomType;
     private ReservedCustomers rc;
+    private RoomStatus status;
     
 
     public Room() {
@@ -42,11 +43,19 @@ public class Room implements RoomInformation{
     public void setRc(ReservedCustomers rc) {
         this.rc = rc;
     }
+
+    public RoomStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(RoomStatus status) {
+        this.status = status;
+    }
     
     @Override
     public String toString() {
-        return "Room{" + "runningRoomNumber=" + runningRoomNumber +" roomType=" + roomType + ", reserved customers=" + getRc() + '}';
+        return "Room{" + "runningRoomNumber=" + runningRoomNumber +" roomType=" + roomType +
+                ", reserved customers=" + getRc()+"Room status= "+getStatus() + '}';
     }
     
-  
 }

@@ -1,0 +1,37 @@
+Fri May 01 19:29:40 ICT 2020 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Fri May 01 19:29:40 ICT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0171-d036-a9da-000028a009d6 
+on database directory C:\Users\User\Documents\com pro\PetsHotel\pethotel with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_221/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_221-b11
+user.dir=C:\Program Files\Java\jdk1.8.0_221\db
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\User\Documents\com pro\PetsHotel
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri May 01 19:29:41 ICT 2020:
+Shutting down instance a816c00e-0171-d036-a9da-000028a009d6 on database directory C:\Users\User\Documents\com pro\PetsHotel\pethotel with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Fri May 01 19:29:41 ICT 2020 Thread[DRDAConnThread_3,5,main] (DATABASE = pethotel), (DRDAID = {2}), Database 'pethotel' shutdown.
+----------------------------------------------------------------
+Fri May 01 19:31:30 ICT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a65c80ac-0171-d036-a9da-000028a009d6 
+on database directory C:\Users\User\Documents\com pro\PetsHotel\pethotel with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_221/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_221-b11
+user.dir=C:\Program Files\Java\jdk1.8.0_221\db
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\User\Documents\com pro\PetsHotel
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri May 01 22:07:40 ICT 2020: Shutting down Derby engine
+----------------------------------------------------------------
+Fri May 01 22:07:40 ICT 2020:
+Shutting down instance a65c80ac-0171-d036-a9da-000028a009d6 on database directory C:\Users\User\Documents\com pro\PetsHotel\pethotel with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+----------------------------------------------------------------

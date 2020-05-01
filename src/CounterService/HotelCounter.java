@@ -4,6 +4,7 @@ import Activities.ActivitiesFee;
 import Customers.ReservedCustomers;
 import Room.HotelRoom;
 import Room.RoomInformation;
+import Room.RoomStatus;
 import Room.RoomType;
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
@@ -151,21 +152,38 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         }else{
         if (c.getResRoom().equals(RoomType.DELUXE)) {
              hRoom.setdRoom(search(c), null);
-            
+             hRoom.minusCountDe();
+             setRoomStauts();
+            recallRoom(c);
         }
         else if (c.getResRoom().equals(RoomType.STANDARD)) {
              hRoom.setStdRoom(search(c), null);
-           
+               hRoom.minusCountStd();
+          recallRoom(c);
         }
         else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
              hRoom.setSupRoom(search(c), null);
-             
+               hRoom.minusCountSup();
+          recallRoom(c);
         }
             System.out.println("cancelled sucessfully");
             return;
         }
     }
-
+    
+    public void recallRoom(ReservedCustomers failcus){
+        if (failcus.getStatus().equals(ReservedStatus.FAIL)&&failcus.getResRoom().equals(RoomType.DELUXE)&&(checkIsFull(failcus)==false)) {
+            reserved(failcus);
+           
+        } else if(failcus.getStatus().equals(ReservedStatus.FAIL)&&failcus.getResRoom().equals(RoomType.STANDARD)&&(checkIsFull(failcus)==false)){
+            reserved(failcus);
+           
+        } else if(failcus.getStatus().equals(ReservedStatus.FAIL)&&failcus.getResRoom().equals(RoomType.SUPERIOR)&&(checkIsFull(failcus)==false)){
+            reserved(failcus);
+           
+        }
+        }
+       
     @Override
     public int search(ReservedCustomers c) {
         if (c.getResRoom().equals(RoomType.DELUXE)) {
@@ -223,15 +241,21 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
                 return hRoom.getCountSup() == RoomInformation.MAX_SUPERIOR;
 
         }
-
     }
     
     @Override
     public void setStatustoReservedCustomers(ReservedCustomers c){
         if (checkIsFull(c)) {
-            c.setStatus(ReservedStatus.INPROCESS);
+            c.setStatus(ReservedStatus.FAIL);
         }else{
             c.setStatus(ReservedStatus.SUCESS);
         }
     }
+
+    @Override
+    public void setRoomStauts() {
+        switch(hRoom.){}
+    }
+    
+   
 }

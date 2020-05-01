@@ -8,14 +8,15 @@ import java.util.Scanner;
 
 public class ReservedCustomers {
     private RoomType resRoom;
-
     private Activities resAct[];
     private int countAct;
-
     private final int numberOfActivities=6;
     private Customers customer;
     private ReservedStatus status;
     private int amount;
+
+    public ReservedCustomers() {
+    }
 
     public ReservedCustomers(RoomType resRoom, Customers customer) {
         this.resRoom = resRoom;
@@ -96,8 +97,6 @@ public class ReservedCustomers {
         this.amount = amount;
     }
 
-    
- 
     @Override
     public String toString(){
         StringBuilder sb =new StringBuilder();

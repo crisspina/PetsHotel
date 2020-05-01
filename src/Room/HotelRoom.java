@@ -4,13 +4,13 @@ import Customers.Customers;
 import Customers.ReservedCustomers;
 import java.util.Iterator;
 
-public class HotelRoom implements Comparable<ReservedCustomers> {
+public class HotelRoom{
 
     private Room[] dRooms;
     private Room[] supRooms;
     private Room[] stdRooms;
     private int countDe, countStd, countSup;
-    private RoomType roomType;
+  
 
     public HotelRoom() {
         createRoom();
@@ -36,11 +36,7 @@ public class HotelRoom implements Comparable<ReservedCustomers> {
 
     }
 
-    public RoomType getRoomType() {
-        return roomType;
-    }
-    
-    
+  
     public Room getdRooms(int index) {
         return dRooms[index];
     }
@@ -76,7 +72,6 @@ public class HotelRoom implements Comparable<ReservedCustomers> {
     public int getSupRoomLength() {
         return this.supRooms.length;
     }
- 
 
     public int getCountDe() {
         return countDe;
@@ -102,31 +97,50 @@ public class HotelRoom implements Comparable<ReservedCustomers> {
         this.countSup = countSup++;
     }
 
+    public void minusCountDe() {
+        this.countDe = countDe--;
+    }
+
+    public void minusCountStd() {
+        this.countStd = countStd--;
+    }
+
+    public void minusCountSup() {
+        this.countSup = countSup--;
+    }
+
     @Override
-    public int compareTo(ReservedCustomers o) {
-        switch (o.getResRoom()) {
-            case DELUXE:
-                for (int i = 0; i < countDe; i++) {
-                    if (dRooms[i].getRc().getCustomers().getfName().equals(o.getCustomers().getfName())
-                            && dRooms[i].getRc().getCustomers().getlName().equals(o.getCustomers().getlName())) {
-                        return 1;
-                    }
-                    System.out.println("CUSTOMERS DID NOT RESERVED");
-                    return -1;
-                }
-            case SUPERIOR:
-                for (int i = 0; i < countDe; i++) {
-                    if (supRooms[i].getRc().getCustomers().getfName().equals(o.getCustomers().getfName())
-                            && supRooms[i].getRc().getCustomers().getlName().equals(o.getCustomers().getlName())) {
-                        return 1;
-                    }
-                    System.out.println("CUSTOMERS DID NOT RESERVED");
-                    return -1;
-                }
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hotle Room");
+        sb.append("\n");
+        sb.append("We have " + RoomInformation.MAX_DELUXE + " rooms");
+        sb.append("\n");
+        sb.append("There are: ");
+        for (int i = 0; i < dRooms.length; i++) {
+            sb.append(dRooms[i].toString());
         }
-        return -1;
+        sb.append("\n");
+        sb.append("We have " + RoomInformation.MAX_SUPERIOR + " rooms");
+         sb.append("\n");
+         for (int i = 0; i < supRooms.length; i++) {
+            sb.append(supRooms[i].toString());
+        }
+        sb.append("\n"); 
+        sb.append("There are: ");
+        for (int i = 0; i < supRooms.length; i++) {
+            sb.append(supRooms[i].toString());
+        }
+        sb.append("\n");
+        sb.append("We have " + RoomInformation.MAX_STANDARD + " rooms");
+        sb.append("\n");
+        sb.append("There are: ");
+        for (int i = 0; i < stdRooms.length; i++) {
+            sb.append(stdRooms[i].toString());
+        }
+        sb.append("\n");
+        return sb.toString();
     }
 
 }
-
 

@@ -8,4 +8,5 @@ public void reserved(ReservedCustomers c);
 public void cancelled(ReservedCustomers c);
 public int search(ReservedCustomers c);
 public void setStatustoReservedCustomers(ReservedCustomers c);
+public void setRoomStauts();
 }
