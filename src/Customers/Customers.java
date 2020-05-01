@@ -21,32 +21,6 @@ public class Customers {
         this.lName = lName;
         this.phoneNumber = phoneNumber;
     }
-    
-    public Customers cusScan(){
-        Customers C = null ;
-        Scanner sn = new Scanner(System.in);
-        
-        System.out.print("Enter first name: ");
-        fName = sn.nextLine();
-        
-        System.out.print("Enter last name: ");
-        lName = sn.nextLine();
-        
-        System.out.print("Enter phonenumber: ");
-        phoneNumber = sn.nextLine();
-        
-        System.out.print("Enter Customer ID: ");
-        phoneNumber = sn.nextLine();
-        
-        System.out.println("---------------------");
-        System.out.println("First name: " + fName);
-        System.out.println("Last name: " + lName);
-        System.out.println("Phone number: " + phoneNumber);;
-        System.out.println("Customer ID: " + CustomerID);
-        
-       C = new Customers(CustomerID, fName, lName, phoneNumber); 
-        return C;
-    }
 
     public int getCustomerID() {
         return CustomerID;
