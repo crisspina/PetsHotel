@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class DBConnection {
     
     private static final String DRIVER="org.apache.derby.jdbc.ClientDriver";
-    private static final String URI="jdbc:derby://localhost:1527/petshop";
-    private static final String USERNAME="petshop";
-    private static final String PASSWORD="petshop";
+    private static final String URI="jdbc:derby://localhost:1527/pethotel";
+    private static final String USERNAME="pethotel";
+    private static final String PASSWORD="pethotel";
     
     public static Connection getConnection(){
         Connection conn = null;
