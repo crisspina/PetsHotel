@@ -9,9 +9,8 @@ public class Test {
     private static void CheckStatus() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    private CustomerDao custDao =  new CustomerDaoImp();
-    
+
+    private CustomerDao custDao = new CustomerDaoImp();
 
     static String menu = "----------<<PETS HOTEL>>----------\n"
             + "1. Create new Customer\n"
@@ -55,36 +54,32 @@ public class Test {
         int select = input.nextInt();
         input.nextLine();
         return select;
- }
+    }
 
     private static void CreateNewCustomer() {
-        View v =new View();
+        View v = new View();
         v.printCustomer();
     }
-    
+
     private static void CheckRoomStatus() {
-        View v =new View();
-        v.printRoom();
+
     }
-    
+
     private static void AddPet() {
-        View v =new View();
+        View v = new View();
         v.printPet();
 
     }
 
-    private static void CancelBooking() {
-        
-    }
-    
-
-    
-
     private static void Booking() {
+        View v = new View();
+        v.printReservedRoom();
+        v.printReserveActivities();
+    }
 
-//         ReservedCustomers rc = new ReservedCustomers();
-//        rc.setReservedActivities();
-   }
+    private static void CancelBooking() {
+
+    }
 
 //        ReservedCustomers rc = new ReservedCustomers();
 //        rc.setReservedActivities();
@@ -94,6 +89,4 @@ public class Test {
 //    private static void CheckStatus() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
-
 }
-
