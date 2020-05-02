@@ -5,6 +5,7 @@ import Customers.ReservedCustomers;
 import Room.HotelRoom;
 import Room.RoomInformation;
 import Room.RoomType;
+import java.io.BufferedOutputStream;
 //import java.io.BufferedOutputStream;
 //import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
@@ -73,10 +74,13 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream("CustomersSlip/" + c.getCustomers().getCustomerID() + "slip.txt");
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+            java.io.ObjectOutputStream oos = new java.io.ObjectOutputStream(bos);
+            
         } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage());
         } catch (IOException ex) {
-            ex.printStackTrace();
+           System.out.println(ex.getMessage());
         }
         PrintWriter pw = new PrintWriter(fos);
         pw.println("YOUR RESERVED INFORMATION");
@@ -170,13 +174,16 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
     }
 
     public void recallRoom(ReservedCustomers failcus) {
-        if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.DELUXE) && (checkIsFull(failcus) == false)) {
+        if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.DELUXE) 
+                && (checkIsFull(failcus) == false)) {
             reserved(failcus);
 
-        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.STANDARD) && (checkIsFull(failcus) == false)) {
+        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.STANDARD) 
+                && (checkIsFull(failcus) == false)) {
             reserved(failcus);
 
-        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.SUPERIOR) && (checkIsFull(failcus) == false)) {
+        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.SUPERIOR) 
+                && (checkIsFull(failcus) == false)) {
             reserved(failcus);
 
         }

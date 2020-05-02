@@ -117,49 +117,49 @@ public class View {
         addCustomersList(rc);
     }
     
-    public void printReserveActivities(){
-        Scanner sn = new Scanner(System.in);
-        Activities resAct[] = null;
-        int countAct = 0;
-        int choiceA = 0;
-        int choice = 0;
-        do {
-            System.out.println("Activities: ");
-            System.out.println("\t 1. GROOMING");
-            System.out.println("\t 2. PLAYTIME");
-            System.out.println("\t 3. GARDEN");
-            System.out.println("\t 4. EXERCISE");
-            System.out.println("\t 5. MESSAGEANDSPA");
-            System.out.println("\t 6. PHOTOSET");
-            System.out.println("\t 7. CONFIRM");
-            System.out.print("Enter your number activities: ");
-            choiceA = sn.nextInt();
-            switch (choiceA) {
-                case 1:
-                    resAct[countAct++] = Activities.GROOMING;
-                    break;
-                case 2:
-                    resAct[countAct++] = Activities.PLAYTIME;
-                    break;
-                case 3:
-                    resAct[countAct++] = Activities.GARDEN;
-                    break;
-                case 4:
-                    resAct[countAct++] = Activities.EXERCISE;
-                    break;
-                case 5:
-                    resAct[countAct++] = Activities.MESSAGEANDSPA;
-                    break;
-                case 6:
-                    resAct[countAct++] = Activities.PHOTOSET;
-                    break;
-                default:
-                    System.out.println("Enter a value between 1-7");
-            }
-            System.out.println("-------------------");
-        } while ((countAct <= this.numberOfActivities) && (choice != 7));
+//    public void printReserveActivities(){
+//        Scanner sn = new Scanner(System.in);
+//        Activities resAct[] = null;
+//        int countAct = 0;
+//        int choiceA = 0;
+//        int choice = 0;
+//        do {
+//            System.out.println("Activities: ");
+//            System.out.println("\t 1. GROOMING");
+//            System.out.println("\t 2. PLAYTIME");
+//            System.out.println("\t 3. GARDEN");
+//            System.out.println("\t 4. EXERCISE");
+//            System.out.println("\t 5. MESSAGEANDSPA");
+//            System.out.println("\t 6. PHOTOSET");
+//            System.out.println("\t 7. CONFIRM");
+//            System.out.print("Enter your number activities: ");
+//            choiceA = sn.nextInt();
+//            switch (choiceA) {
+//                case 1:
+//                    resAct[countAct++] = Activities.GROOMING;
+//                    break;
+//                case 2:
+//                    resAct[countAct++] = Activities.PLAYTIME;
+//                    break;
+//                case 3:
+//                    resAct[countAct++] = Activities.GARDEN;
+//                    break;
+//                case 4:
+//                    resAct[countAct++] = Activities.EXERCISE;
+//                    break;
+//                case 5:
+//                    resAct[countAct++] = Activities.MESSAGEANDSPA;
+//                    break;
+//                case 6:
+//                    resAct[countAct++] = Activities.PHOTOSET;
+//                    break;
+//                default:
+//                    System.out.println("Enter a value between 1-7");
+//            }
+//            System.out.println("-------------------");
+//        } while ((countAct <= this.numberOfActivities) && (choice != 7));
         
-    }
+//    }
     
 }
 
