@@ -2,25 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Dao/PetDao.java</file>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Room/RoomStatus.java</file>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Dao/CustomerDao.java</file>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Dao/RoomDao.java</file>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/pethotel/PetHotel.java</file>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/dataaccess/CustomerDaoImp.java</file>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Room/Room.java</file>
+            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/CounterService/DatabaseInitialization.java</file>
             <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Room/HotelRoom.java</file>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/CounterService/ReservedStatus.java</file>
+            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/test/Test.java</file>
+            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Application.java</file>
+            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Customers/Customers.java</file>
             <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/test/View.java</file>
             <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/CounterService/HotelCounter.java</file>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Room/RoomType.java</file>
-            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/CounterService/ReserveOperation.java</file>
+            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Customers/Pet.java</file>
+            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/pethotel/PetHotel.java</file>
+            <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Room/Room.java</file>
             <file>file:/C:/Users/User/Documents/com%20pro/PetsHotel/src/Customers/ReservedCustomers.java</file>
         </group>
-=======
-        <group/>
->>>>>>> master
     </open-files>
 </project-private>

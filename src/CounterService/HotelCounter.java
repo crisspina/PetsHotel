@@ -150,29 +150,10 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         if (checkReserveHistory(c) == false) {
             System.out.println("you haven't reserved the room");
             return;
-<<<<<<< HEAD
-        }else{
-        if (c.getResRoom().equals(RoomType.DELUXE)) {
-             hRoom.setdRoom(search(c), null);
-             hRoom.minusCountDe();
-            recallRoom(c);
-        }
-        else if (c.getResRoom().equals(RoomType.STANDARD)) {
-             hRoom.setStdRoom(search(c), null);
-               hRoom.minusCountStd();
-          recallRoom(c);
-        }
-        else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
-             hRoom.setSupRoom(search(c), null);
-               hRoom.minusCountSup();
-          recallRoom(c);
-        }
-=======
         } else {
             if (c.getResRoom().equals(RoomType.DELUXE)) {
                 hRoom.setdRoom(search(c), null);
                 hRoom.minusCountDe();
-                setRoomStauts();
                 recallRoom(c);
             } else if (c.getResRoom().equals(RoomType.STANDARD)) {
                 hRoom.setStdRoom(search(c), null);
@@ -183,7 +164,6 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
                 hRoom.minusCountSup();
                 recallRoom(c);
             }
->>>>>>> master
             System.out.println("cancelled sucessfully");
             return;
         }
@@ -270,13 +250,5 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         }
     }
 
-<<<<<<< HEAD
-=======
-    @Override
-    public void setRoomStauts() {
-        switch (hRoom.) {
-        }
-    }
 
->>>>>>> master
 }

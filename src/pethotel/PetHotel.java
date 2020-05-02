@@ -14,6 +14,7 @@ public class PetHotel {
     private HotelRoom hr;
     private String name;
     private HotelCounter h;
+    private static ArrayList<ReservedCustomers> custList;
   
     public PetHotel() {
         setHotelName();
@@ -32,7 +33,18 @@ public class PetHotel {
     public HotelRoom getHr() {
         return hr;
     }
+
+    public  ArrayList<ReservedCustomers> getResCust() {
+        return custList;
+    }
+
+    public  void setResCust() {
+       this.custList= new ArrayList();
+    }
     
+    public static void addCustomersList(ReservedCustomers resCust){
+       custList.add(resCust);
+    }
      @Override
     public String toString() {
         return "PetHotel{" + "hr=" + hr + ", name=" + name + ", h=" + h + /*+" ,rc" + rc*/ +'}';

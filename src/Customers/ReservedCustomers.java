@@ -23,11 +23,7 @@ public class ReservedCustomers {
         this.resRoom = resRoom;
         this.customer = customer;
     }
-
-<<<<<<< HEAD
-  
-    
-    public void setReservedActivities(){
+   public void setReservedActivities(){
 
         Scanner sn = new Scanner(System.in);
          int choice;
@@ -68,8 +64,7 @@ public class ReservedCustomers {
      }
         while((countAct<=this.numberOfActivities)&&(choice!=7));
 }
-=======
->>>>>>> master
+
     public RoomType getResRoom() {
         return resRoom;
     }

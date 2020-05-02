@@ -8,6 +8,8 @@ import Room.RoomType;
 import dataaccess.CustomerDaoImp;
 import java.util.ArrayList;
 import java.util.Scanner;
+import pethotel.PetHotel;
+import static pethotel.PetHotel.addCustomersList;
 
 
 public class View {
@@ -111,8 +113,8 @@ public class View {
                     break;
         }
         System.out.println("---------------------");
-        ArrayList<ReservedCustomers> customersList = new ArrayList();
-        customersList.add(C);
+        ReservedCustomers rc = new ReservedCustomers();
+        addCustomersList(rc);
     }
     
     public void printReserveActivities(){
@@ -156,12 +158,11 @@ public class View {
             }
             System.out.println("-------------------");
         } while ((countAct <= this.numberOfActivities) && (choice != 7));
-        ArrayList<ReservedCustomers> customersList = new ArrayList();
-        customersList.add(C);
+        
     }
     
 }
-}
+
 
 
 
