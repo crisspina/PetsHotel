@@ -92,7 +92,7 @@ public class View {
             }
                 
          if(addMai()){
-                petScan();
+                printPet();
             }else{}
         System.out.println("---------------------");
     }
