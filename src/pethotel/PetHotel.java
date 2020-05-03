@@ -44,6 +44,7 @@ public class PetHotel {
     
     public static void addCustomersList(ReservedCustomers resCust){
        custList.add(resCust);
+       
     }
      @Override
     public String toString() {

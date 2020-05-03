@@ -5,26 +5,24 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Customers {
-    private int CustomerID;
+    private long IdNumber;
     private String fName;
     private String lName;
     private String phoneNumber;
-
+    private Pet pet;
 
     public Customers(){
         
     }
     
-    public Customers(int CustomerID, String fName, String lName, String phoneNumber) {
-        this.CustomerID = CustomerID;
+    public Customers(int CustomerIDnum, String fName, String lName, String phoneNumber,Pet pet) {
+        this.IdNumber = CustomerIDnum;
         this.fName = fName;
         this.lName = lName;
         this.phoneNumber = phoneNumber;
+        this.pet = pet;
     }
 
-    public int getCustomerID() {
-        return CustomerID;
-    }
     
     public String getfName() {
         return fName;
@@ -38,10 +36,6 @@ public class Customers {
         return phoneNumber;
     }
 
-    public void setCustomerID(int CustomerID) {
-        this.CustomerID = CustomerID;
-    }
-
     public void setfName(String fName) {
         this.fName = fName;
     }
@@ -52,6 +46,14 @@ public class Customers {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public long getCustomerID() {
+        return IdNumber;
     }
 
     @Override
@@ -72,7 +74,7 @@ public class Customers {
             return false;
         }
         final Customers other = (Customers) obj;
-        if (this.CustomerID != other.CustomerID) {
+        if (this.IdNumber != other.IdNumber) {
             return false;
         }
         if (!Objects.equals(this.fName, other.fName)) {
@@ -84,14 +86,18 @@ public class Customers {
         if (!Objects.equals(this.phoneNumber, other.phoneNumber)) {
             return false;
         }
+        if (!Objects.equals(this.pet, other.pet)) {
+            return false;
+        }
         return true;
     }
 
+    
   
 
     @Override
     public String toString() {
-        return "Customers{" + "CustomerID=" + CustomerID + ", fName=" + fName + ", lName=" + lName + ", phoneNumber=" + phoneNumber + '}';
+        return "Customers{" + "CustomerID=" + IdNumber + ", fName=" + fName + ", lName=" + lName + ", phoneNumber=" + phoneNumber +"your pet= "+getPet()+'}';
     }
     
     

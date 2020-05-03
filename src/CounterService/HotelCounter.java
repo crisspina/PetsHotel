@@ -6,18 +6,17 @@ import Room.HotelRoom;
 import Room.RoomInformation;
 import Room.RoomType;
 import java.io.BufferedOutputStream;
-//import java.io.BufferedOutputStream;
-//import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-//import java.util.Objects;
+import pethotel.PetHotel;
+
 
 public class HotelCounter implements Payment, ReserveOperation, Check {
 
     private HotelRoom hRoom;
-
+    private PetHotel petHotel;
     public HotelCounter() {
 
     }
@@ -133,16 +132,19 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
                 for (int i = 0; i < hRoom.getDRoomLength(); i++) {
                     hRoom.setdRoom(i, c);
                     hRoom.addCountDe();
+                    setStatustoReservedCustomers(c);
                 }
             } else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
                 for (int i = 0; i < hRoom.getSupRoomLength(); i++) {
                     hRoom.setSupRoom(i, c);
                     hRoom.addCountSup();
+                     setStatustoReservedCustomers(c);
                 }
             } else {
                 for (int i = 0; i < hRoom.getStdRoomLength(); i++) {
                     hRoom.setStdRoom(i, c);
                     hRoom.addCountStd();
+                    setStatustoReservedCustomers(c);
                 }
             }
         }
@@ -158,42 +160,45 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
             if (c.getResRoom().equals(RoomType.DELUXE)) {
                 hRoom.setdRoom(search(c), null);
                 hRoom.minusCountDe();
-                recallRoom(c);
+//                recallRoom(c);
+                setStatustoReservedCustomers(c);
             } else if (c.getResRoom().equals(RoomType.STANDARD)) {
                 hRoom.setStdRoom(search(c), null);
                 hRoom.minusCountStd();
-                recallRoom(c);
+//                recallRoom(c);
+                 setStatustoReservedCustomers(c);
             } else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
                 hRoom.setSupRoom(search(c), null);
                 hRoom.minusCountSup();
-                recallRoom(c);
+//                recallRoom(c);
+                setStatustoReservedCustomers(c);
             }
             System.out.println("cancelled sucessfully");
             return;
         }
     }
 
-    public void recallRoom(ReservedCustomers failcus) {
-        if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.DELUXE) 
-                && (checkIsFull(failcus) == false)) {
-            reserved(failcus);
-
-        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.STANDARD) 
-                && (checkIsFull(failcus) == false)) {
-            reserved(failcus);
-
-        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.SUPERIOR) 
-                && (checkIsFull(failcus) == false)) {
-            reserved(failcus);
-
-        }
-    }
+//    public void recallRoom(ReservedCustomers failcus) {
+//        if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.DELUXE) 
+//                && (checkIsFull(failcus) == false)) {
+//            reserved(failcus);
+//
+//        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.STANDARD) 
+//                && (checkIsFull(failcus) == false)) {
+//            reserved(failcus);
+//
+//        } else if (failcus.getStatus().equals(ReservedStatus.FAIL) && failcus.getResRoom().equals(RoomType.SUPERIOR) 
+//                && (checkIsFull(failcus) == false)) {
+//            reserved(failcus);
+//
+//        }
+//    }
 
     @Override
     public int search(ReservedCustomers c) {
         if (c.getResRoom().equals(RoomType.DELUXE)) {
             for (int i = 0; i < hRoom.getCountDe(); i++) {
-                if (c.getCustomers().equals(hRoom.getdRooms(i).getRc().getCustomers())) {
+                if (c.getCustomers().getPet().equals(hRoom.getdRooms(i).getRc().getCustomers().getPet())) {
                     return i;
                 }
                 System.out.println("not found");
@@ -202,7 +207,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         }
         if (c.getResRoom().equals(RoomType.SUPERIOR)) {
             for (int i = 0; i < hRoom.getCountSup(); i++) {
-                if (c.getCustomers().equals(hRoom.getSupRooms(i).getRc().getCustomers())) {
+                if (c.getCustomers().getPet().equals(hRoom.getSupRooms(i).getRc().getCustomers().getPet())) {
                     return i;
                 }
                 System.out.println("not found");
@@ -212,7 +217,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         if (c.getResRoom().equals(RoomType.STANDARD)) {
             for (int i = 0; i < hRoom.getCountStd(); i++) {
 
-                if (c.getCustomers().equals(hRoom.getStdRooms(i).getRc().getCustomers())) {
+                if (c.getCustomers().getPet().equals(hRoom.getStdRooms(i).getRc().getCustomers().getPet())) {
                     return i;
                 }
                 System.out.println("not found");
@@ -229,6 +234,7 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
             System.out.println("YOU HAVE ALREADY RESERVED");
             return true;
         }
+        System.out.println("YOU DIDN'T RESERVED ANY ROOM");
         return false;
     }
 
@@ -257,5 +263,5 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
         }
     }
 
-
+    
 }

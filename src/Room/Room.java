@@ -9,19 +9,19 @@ public class Room {
     private RoomType roomType;
     private ReservedCustomers rc;
     private RoomStatus status;
-    
+    private long cusId;
 
-    public Room() {
-    }
+//    public Room() {
+//    }
     
-    public Room(String Rnum){
-    this.runningRoomNumber=Rnum;
-    }
+//    public Room(String Rnum){
+//    this.runningRoomNumber=Rnum;
+//    }
 
-    public Room(ReservedCustomers rc) {
-        this.rc = rc;
-    }
-    
+//    public Room(ReservedCustomers rc) {
+//        this.rc = rc;
+//    }
+//    
 
     public Room(String runningRoomNumber, RoomType roomType) {
         this.runningRoomNumber = runningRoomNumber;
@@ -40,18 +40,28 @@ public class Room {
 
     public void setRc(ReservedCustomers rc) {
         this.rc = rc;
+        setCusID();
+    }
+    
+    public void setCusID(){
+    this.cusId=rc.getCustomers().getCustomerID();
     }
 
+    public long getCusId() {
+        return cusId;
+    }
     
     public RoomStatus getStatus() {
+        setStatus();
         return status;
     }
 
-    public void setStatus(RoomStatus status) {
-         if (rc.getCustomers()!=null) {
-            this.status=RoomStatus.FULL;
+    public void setStatus() {
+         if (!(rc.getCustomers().equals(null))) {
+           this.status=RoomStatus.FULL;
         }
         this.status=RoomStatus.AVAILABLE;
+         
     }
     
     @Override

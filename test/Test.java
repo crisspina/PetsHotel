@@ -1,15 +1,14 @@
 
+import Customers.Customers;
 import Customers.Pet;
 import Dao.CustomerDao;
+import Room.HotelRoom;
 import dataaccess.CustomerDaoImp;
 import java.util.Scanner;
 
 public class Test {
 
-    private static void CheckStatus() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     private CustomerDao custDao = new CustomerDaoImp();
 
     static String menu = "----------<<PETS HOTEL>>----------\n"
@@ -26,8 +25,10 @@ public class Test {
     public static void main(String[] args) {
 //        Pet p = new Pet();
 //        p.petScan();
+          
         int select;
-        do {
+        do {  
+            
             select = menuSelection();
             switch (select) {
                 case 1:
@@ -57,12 +58,13 @@ public class Test {
     }
 
     private static void CreateNewCustomer() {
-        View v = new View();
+       View v = new View();
         v.printCustomer();
     }
 
     private static void CheckRoomStatus() {
-
+        HotelRoom h = new HotelRoom();
+        System.out.println(h.toString());
     }
 
     private static void AddPet() {
@@ -74,12 +76,16 @@ public class Test {
     private static void Booking() {
         View v = new View();
         v.printReservedRoom();
-        v.printReserveActivities();
+     
     }
 
     private static void CancelBooking() {
 
     }
+     private static void CheckStatus() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
 //        ReservedCustomers rc = new ReservedCustomers();
 //        rc.setReservedActivities();

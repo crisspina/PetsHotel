@@ -9,11 +9,5 @@ public interface CustomerDao {
     int delete(Customers obj);
     Customers findById(int id);
     GeneralList<Customers> findByName(String name);
-<<<<<<< HEAD
-
-    public void insert(Customers C);
-
-=======
     GeneralList<Customers> getAll();
->>>>>>> master
 }

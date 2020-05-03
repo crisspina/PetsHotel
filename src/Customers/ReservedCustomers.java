@@ -14,6 +14,7 @@ public class ReservedCustomers {
     private Customers customer;
     private ReservedStatus status;
     private int amount;
+    private long customerId;
 
     public ReservedCustomers() {
 
@@ -22,6 +23,8 @@ public class ReservedCustomers {
     public ReservedCustomers(RoomType resRoom, Customers customer) {
         this.resRoom = resRoom;
         this.customer = customer;
+        this.customerId=this.customer.getCustomerID();
+        setReservedActivities();
     }
    public void setReservedActivities(){
 
@@ -92,6 +95,7 @@ public class ReservedCustomers {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
 
     @Override
     public String toString() {
