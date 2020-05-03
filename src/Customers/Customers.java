@@ -14,8 +14,15 @@ public class Customers {
     public Customers(){
         
     }
+
+    public Customers(long IdNumber, String fName, String lName, String phoneNumber) {
+        this.IdNumber = IdNumber;
+        this.fName = fName;
+        this.lName = lName;
+        this.phoneNumber = phoneNumber;
+    }
     
-    public Customers(int CustomerIDnum, String fName, String lName, String phoneNumber,Pet pet) {
+    public Customers(long CustomerIDnum, String fName, String lName, String phoneNumber,Pet pet) {
         this.IdNumber = CustomerIDnum;
         this.fName = fName;
         this.lName = lName;
@@ -23,6 +30,11 @@ public class Customers {
         this.pet = pet;
     }
 
+    public long getIdNumber() {
+        return IdNumber;
+    }
+
+    
     
     public String getfName() {
         return fName;
@@ -93,8 +105,6 @@ public class Customers {
     }
 
     
-  
-
     @Override
     public String toString() {
         return "Customers{" + "CustomerID=" + IdNumber + ", fName=" + fName + ", lName=" + lName + ", phoneNumber=" + phoneNumber +"your pet= "+getPet()+'}';

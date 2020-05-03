@@ -2,6 +2,7 @@ package Dao;
 
 import Customers.Customers;
 import Customers.GeneralList;
+//import java.util.ArrayList;
 
 
 public interface CustomerDao { 
@@ -10,4 +11,7 @@ public interface CustomerDao {
     Customers findById(int id);
     GeneralList<Customers> findByName(String name);
     GeneralList<Customers> getAll();
+//    ArrayList<Customers> printAllCustomers();
+
 }
+

@@ -7,14 +7,14 @@ import java.util.Scanner;
 
 public class ReservedCustomers {
 
-    private RoomType resRoom;
-    private Activities resAct[];
+    private RoomType resRoom;  //สร้างนี้
+    private Activities resAct[]; //สร้างนี้
     private int countAct;
     private final int numberOfActivities = 6;
-    private Customers customer;
+    private Customers customer; //สร้างนี้
     private ReservedStatus status;
-    private int amount;
-    private long customerId;
+    private int amount; //สร้างนี้
+    private long IdNumber;
 
     public ReservedCustomers() {
 
