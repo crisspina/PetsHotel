@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Customers {
-    private long IdNumber;
+    private String IdNumber;
     private String fName;
     private String lName;
     private String phoneNumber;
@@ -15,14 +15,14 @@ public class Customers {
         
     }
 
-    public Customers(long IdNumber, String fName, String lName, String phoneNumber) {
+    public Customers(String IdNumber, String fName, String lName, String phoneNumber) {
         this.IdNumber = IdNumber;
         this.fName = fName;
         this.lName = lName;
         this.phoneNumber = phoneNumber;
     }
     
-    public Customers(long CustomerIDnum, String fName, String lName, String phoneNumber,Pet pet) {
+    public Customers(String CustomerIDnum, String fName, String lName, String phoneNumber,Pet pet) {
         this.IdNumber = CustomerIDnum;
         this.fName = fName;
         this.lName = lName;
@@ -30,7 +30,7 @@ public class Customers {
         this.pet = pet;
     }
 
-    public long getIdNumber() {
+    public String getIdNumber() {
         return IdNumber;
     }
 
@@ -64,7 +64,7 @@ public class Customers {
         return pet;
     }
 
-    public long getCustomerID() {
+    public String getCustomerID() {
         return IdNumber;
     }
 

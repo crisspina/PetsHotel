@@ -13,9 +13,9 @@ import java.util.Scanner;
 public class DatabaseInitialization {
 
     public static void main(String[] args) {
-        createTablesCustomer();
-        createTablesPet();
-        createTablesActivites();
+//        createTablesCustomer();
+//        createTablesPet();
+//        createTablesActivites();
         createTablesReservedCustomer();
         initializeDb(true);
     }
@@ -110,7 +110,7 @@ public class DatabaseInitialization {
             try {
                 stm.executeUpdate("CREATE TABLE ReservedCustomer (IdNumber INT NOT NULL,"
                         + " resRoom VARCHAR(20) "
-                        + " amount INT  "
+                        + " amount INT "
                         + " status VARCHAR(10)"
                         + " PRIMARY KEY (IdNumber))");
             } catch (SQLException e) {
@@ -199,7 +199,7 @@ public class DatabaseInitialization {
             try {
                 if (show) {
                     System.out.println("\n--- Import Activity ---");
-                    sc = new Scanner(new File("file/pet"));
+                    sc = new Scanner(new File("file/activity"));
                     String line;
 
                     try {
@@ -233,13 +233,9 @@ public class DatabaseInitialization {
             Scanner sc;
             try {
                 if (show) {
-                    System.out.println("\n--- Import Pet ---");
-                    sc = new Scanner(new File("file/pet"));
+                    System.out.println("\n--- Import ReservedCustomer ---");
+                    sc = new Scanner(new File("file/"));
                     String line;
-//IdNumber INT NOT NULL,"
-//                        + " resRoom VARCHAR(20) "
-//                        + " amount INT  "
-//                        + " status VARCHAR(10)"
                     try {
                         while ((line = sc.nextLine()) != null) {
                             String[] temp = line.split(",");
