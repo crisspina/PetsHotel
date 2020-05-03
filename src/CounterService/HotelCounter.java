@@ -2,8 +2,9 @@ package CounterService;
 
 import Activities.ActivitiesFee;
 import Customers.ReservedCustomers;
-import Room.HotelRoom;
+//import Room.HotelRoom;
 import Room.RoomInformation;
+import Room.RoomStatus;
 import Room.RoomType;
 import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
@@ -15,7 +16,7 @@ import pethotel.PetHotel;
 
 public class HotelCounter implements Payment, ReserveOperation, Check {
 
-    private HotelRoom hRoom;
+  
     private PetHotel petHotel;
     public HotelCounter() {
 
@@ -129,21 +130,24 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
     public void reserved(ReservedCustomers c) {
         if (!(checkIsFull(c) || checkReserveHistory(c))) {
             if (c.getResRoom().equals(RoomType.DELUXE)) {
-                for (int i = 0; i < hRoom.getDRoomLength(); i++) {
-                    hRoom.setdRoom(i, c);
-                    hRoom.addCountDe();
+                for (int i = 0; i < petHotel.getHr().getDRoomLength(); i++) {
+                    petHotel.getHr().setdRoom(i, c);
+                    petHotel.getHr().addCountDe();
+                    petHotel.getHr().getdRooms(i).setStatus(RoomStatus.FULL);
                     setStatustoReservedCustomers(c);
                 }
             } else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
-                for (int i = 0; i < hRoom.getSupRoomLength(); i++) {
-                    hRoom.setSupRoom(i, c);
-                    hRoom.addCountSup();
+                for (int i = 0; i < petHotel.getHr().getSupRoomLength(); i++) {
+                    petHotel.getHr().setSupRoom(i, c);
+                    petHotel.getHr().addCountSup();
+                    petHotel.getHr().getSupRooms(i).setStatus(RoomStatus.FULL);
                      setStatustoReservedCustomers(c);
                 }
             } else {
-                for (int i = 0; i < hRoom.getStdRoomLength(); i++) {
-                    hRoom.setStdRoom(i, c);
-                    hRoom.addCountStd();
+                for (int i = 0; i < petHotel.getHr().getStdRoomLength(); i++) {
+                    petHotel.getHr().setStdRoom(i, c);
+                    petHotel.getHr().addCountStd();
+                    petHotel.getHr().getStdRooms(i).setStatus(RoomStatus.FULL);
                     setStatustoReservedCustomers(c);
                 }
             }
@@ -158,18 +162,22 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
             return;
         } else {
             if (c.getResRoom().equals(RoomType.DELUXE)) {
-                hRoom.setdRoom(search(c), null);
-                hRoom.minusCountDe();
+                petHotel.getHr().getdRooms(search(c)).setStatus(RoomStatus.AVAILABLE);
+                petHotel.getHr().setdRoom(search(c), null);
+                petHotel.getHr().minusCountDe();
+               
 //                recallRoom(c);
                 setStatustoReservedCustomers(c);
             } else if (c.getResRoom().equals(RoomType.STANDARD)) {
-                hRoom.setStdRoom(search(c), null);
-                hRoom.minusCountStd();
+                  petHotel.getHr().getStdRooms(search(c)).setStatus(RoomStatus.AVAILABLE);
+                petHotel.getHr().setStdRoom(search(c), null);
+                petHotel.getHr().minusCountStd();
 //                recallRoom(c);
                  setStatustoReservedCustomers(c);
             } else if (c.getResRoom().equals(RoomType.SUPERIOR)) {
-                hRoom.setSupRoom(search(c), null);
-                hRoom.minusCountSup();
+                petHotel.getHr().getSupRooms(search(c)).setStatus(RoomStatus.AVAILABLE);
+                petHotel.getHr().setSupRoom(search(c), null);
+                petHotel.getHr().minusCountSup();
 //                recallRoom(c);
                 setStatustoReservedCustomers(c);
             }
@@ -197,8 +205,8 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
     @Override
     public int search(ReservedCustomers c) {
         if (c.getResRoom().equals(RoomType.DELUXE)) {
-            for (int i = 0; i < hRoom.getCountDe(); i++) {
-                if (c.getCustomers().getPet().equals(hRoom.getdRooms(i).getRc().getCustomers().getPet())) {
+            for (int i = 0; i < petHotel.getHr().getCountDe(); i++) {
+                if (c.getCustomers().getPet().equals(petHotel.getHr().getdRooms(i).getRc().getCustomers().getPet())) {
                     return i;
                 }
                 System.out.println("not found");
@@ -206,8 +214,8 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
             }
         }
         if (c.getResRoom().equals(RoomType.SUPERIOR)) {
-            for (int i = 0; i < hRoom.getCountSup(); i++) {
-                if (c.getCustomers().getPet().equals(hRoom.getSupRooms(i).getRc().getCustomers().getPet())) {
+            for (int i = 0; i < petHotel.getHr().getCountSup(); i++) {
+                if (c.getCustomers().getPet().equals(petHotel.getHr().getSupRooms(i).getRc().getCustomers().getPet())) {
                     return i;
                 }
                 System.out.println("not found");
@@ -215,9 +223,9 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
             }
         }
         if (c.getResRoom().equals(RoomType.STANDARD)) {
-            for (int i = 0; i < hRoom.getCountStd(); i++) {
+            for (int i = 0; i < petHotel.getHr().getCountStd(); i++) {
 
-                if (c.getCustomers().getPet().equals(hRoom.getStdRooms(i).getRc().getCustomers().getPet())) {
+                if (c.getCustomers().getPet().equals(petHotel.getHr().getStdRooms(i).getRc().getCustomers().getPet())) {
                     return i;
                 }
                 System.out.println("not found");
@@ -243,13 +251,13 @@ public class HotelCounter implements Payment, ReserveOperation, Check {
 
         switch (c.getResRoom()) {
             case DELUXE:
-                return hRoom.getCountDe() == RoomInformation.MAX_DELUXE;
+                return petHotel.getHr().getCountDe() == RoomInformation.MAX_DELUXE;
 
             case STANDARD:
-                return hRoom.getCountStd() == RoomInformation.MAX_STANDARD;
+                return petHotel.getHr().getCountStd() == RoomInformation.MAX_STANDARD;
 
             default:
-                return hRoom.getCountSup() == RoomInformation.MAX_SUPERIOR;
+                return petHotel.getHr().getCountSup() == RoomInformation.MAX_SUPERIOR;
 
         }
     }

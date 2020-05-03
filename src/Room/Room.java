@@ -26,6 +26,7 @@ public class Room {
     public Room(String runningRoomNumber, RoomType roomType) {
         this.runningRoomNumber = runningRoomNumber;
         this.roomType = roomType;
+        this.status=RoomStatus.AVAILABLE;
     }
 
   
@@ -52,22 +53,17 @@ public class Room {
     }
     
     public RoomStatus getStatus() {
-        setStatus();
         return status;
     }
 
-    public void setStatus() {
-         if (!(rc.getCustomers().equals(null))) {
-           this.status=RoomStatus.FULL;
-        }
-        this.status=RoomStatus.AVAILABLE;
-         
+    public void setStatus(RoomStatus status) {
+     this.status=status;  
     }
     
-    @Override
-    public String toString() {
-        return "Room{" + "runningRoomNumber=" + runningRoomNumber +" roomType=" + roomType +
-                ", reserved customers=" + getRc()+"Room status= "+getStatus() + '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Room{" + "runningRoomNumber=" + runningRoomNumber +" roomType=" + roomType +
+//                ", reserved customers=" + getRc()+"Room status= "+getStatus() + '}';
+//    }
     
 }

@@ -6,25 +6,20 @@ import Customers.PetType;
 import Customers.ReservedCustomers;
 import Room.HotelRoom;
 import Room.RoomType;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class PetHotel {
 
     private HotelRoom hr;
     private String name;
-    private HotelCounter h;
-    private static ArrayList<ReservedCustomers> custList;
-  
-    public PetHotel() {
-        setHotelName();
+//    private HotelCounter hc;
+
+    public PetHotel(String name) {
+       this.name=name;
+       this.hr= new HotelRoom();
     }
 
-    public void setHotelName() {
-        Scanner sc = new Scanner(System.in);
-        String scString = sc.nextLine();
-        this.name = scString;
-    }
 
     public String getHotelName() {
         return name;
@@ -33,23 +28,18 @@ public class PetHotel {
     public HotelRoom getHr() {
         return hr;
     }
-
-    public  ArrayList<ReservedCustomers> getResCust() {
-        return custList;
-    }
-
-    public  void setResCust() {
-       this.custList= new ArrayList();
-    }
     
-    public static void addCustomersList(ReservedCustomers resCust){
-       custList.add(resCust);
-       
-    }
-     @Override
+//    public int checkBill(ReservedCustomers c){
+//    return hc.checkBill(c);
+//    }
+
+    @Override
     public String toString() {
-        return "PetHotel{" + "hr=" + hr + ", name=" + name + ", h=" + h + /*+" ,rc" + rc*/ +'}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(getHotelName() + " Hotel");
+        sb.append("\n");
+        sb.append("Hotel room information " + hr.toString());
+        return sb.toString();
     }
 
-    
-    }
+}

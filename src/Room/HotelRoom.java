@@ -110,34 +110,37 @@ public class HotelRoom{
     }
 
     @Override
-    public String toString() {
+    public  String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Hotle Room");
+        sb.append(" : A number of Available room for reserve:  ");
         sb.append("\n");
-        sb.append("We have " + RoomInformation.MAX_DELUXE + " rooms");
+        sb.append("Deluxe Room: ");
+        sb.append("We have " + (RoomInformation.MAX_DELUXE-countDe) + " rooms");
+//        sb.append("\n");
+//        sb.append("There are: ");
+//        for (int i = 0; i < dRooms.length; i++) {
+//            sb.append(dRooms[i].toString());
+//        }
         sb.append("\n");
-        sb.append("There are: ");
-        for (int i = 0; i < dRooms.length; i++) {
-            sb.append(dRooms[i].toString());
-        }
+        sb.append("Superior Room: ");
+        sb.append("We have " + (RoomInformation.MAX_SUPERIOR-countSup) + " rooms");
+//         sb.append("\n");
+//         for (int i = 0; i < supRooms.length; i++) {
+//            sb.append(supRooms[i].toString());
+//        }
+//        sb.append("\n"); 
+//        sb.append("There are: ");
+//        for (int i = 0; i < supRooms.length; i++) {
+//            sb.append(supRooms[i].toString());
+//        }
         sb.append("\n");
-        sb.append("We have " + RoomInformation.MAX_SUPERIOR + " rooms");
-         sb.append("\n");
-         for (int i = 0; i < supRooms.length; i++) {
-            sb.append(supRooms[i].toString());
-        }
-        sb.append("\n"); 
-        sb.append("There are: ");
-        for (int i = 0; i < supRooms.length; i++) {
-            sb.append(supRooms[i].toString());
-        }
-        sb.append("\n");
-        sb.append("We have " + RoomInformation.MAX_STANDARD + " rooms");
-        sb.append("\n");
-        sb.append("There are: ");
-        for (int i = 0; i < stdRooms.length; i++) {
-            sb.append(stdRooms[i].toString());
-        }
+        sb.append("Standard Room: ");
+        sb.append("We have " + (RoomInformation.MAX_STANDARD-countStd) + " rooms");
+//        sb.append("\n");
+//        sb.append("There are: ");
+//        for (int i = 0; i < stdRooms.length; i++) {
+//            sb.append(stdRooms[i].toString());
+//        }
         sb.append("\n");
         return sb.toString();
     }
